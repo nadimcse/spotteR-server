@@ -1,5 +1,6 @@
 package com.butterfly.spotter.resource;
 
+import com.butterfly.spotter.dao.SpotterDao;
 import com.butterfly.spotter.model.MessageDbObject;
 import com.butterfly.spotter.model.MessageHttpObject;
 import com.butterfly.spotter.model.PeerHttpObject;
@@ -17,21 +18,19 @@ import java.util.Map;
 @Path("/hello")
 public class HelloResource {
     private SpotterService spotterService;
+    private SpotterDao spotterDao;
 
     @Inject
-    public HelloResource(SpotterService spotterService) {
+    public HelloResource(SpotterService spotterService,
+                         SpotterDao spotterDao) {
         this.spotterService = spotterService;
+        this.spotterDao = spotterDao;
     }
 
     @GET
     @Produces(MediaType.TEXT_HTML)
     public Response getReloadPage() {
-//        spotterService.handleMessage(new MessageHttpObject("111",
-//                StatusCode.SEND_MESSAGE_REQUEST.name(), "01911306668", "helo!!!"),
-//                new MessageDbObject("0191", "jhello"));
-        spotterService.handlePeerRequest(new PeerHttpObject("111",
-                StatusCode.PEER_CONFORMATION_REQUEST.name(),
-                "111", "22"));
+        spotterDao.saveMessage(new MessageDbObject("0191", "hello"));
         Map<String, Object> model = new HashMap<>();
         model.put("message", "hello!!!!!!!!!!!!!!!!");
         return Response.ok(new Viewable("/hello", model)).build();

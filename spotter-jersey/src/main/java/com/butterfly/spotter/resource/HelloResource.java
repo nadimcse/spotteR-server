@@ -32,7 +32,7 @@ public class HelloResource {
     public Response getReloadPage() {
         spotterDao.saveMessage(new MessageDbObject("0191", "hello"));
         Map<String, Object> model = new HashMap<>();
-        model.put("message", "hello!!!!!!!!!!!!!!!!");
+        model.put("message", "oiiiiiiiiiiii haramjada!!!!!!!!!!!!!!");
         return Response.ok(new Viewable("/hello", model)).build();
     }
 

@@ -8,7 +8,9 @@
         <!-- All the JPA Entity class names go here. -->
         <class>com.butterfly.spotter.model.MessageDbObject</class>
         <class>com.butterfly.spotter.model.MapDbObject</class>
-
+        <class>com.butterfly.spotter.model.CallerDbObject</class>
+        <class>com.butterfly.spotter.model.PendingPeersDbObject</class>
+        <class>com.butterfly.spotter.model.GroupDbObject</class>
 
         <properties>
 

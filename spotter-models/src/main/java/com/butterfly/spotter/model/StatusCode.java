@@ -13,7 +13,12 @@ public enum StatusCode {
     SEND_MAP_REQUEST (4),
     BLOCK_REQUEST (5),
     PEERS_REQUEST (6),
-    PEER_CONFORMATION_REQUEST (7);
+    PEER_CONFORMATION_REQUEST(7),
+    LOGIN_ERROR(8),
+    LOGIN_OK(9),
+    LOGOUT_OK(10),
+    PEER_REQUEST(11),
+    GROUP_REQUEST(12);
 
     private int statusCode;
 

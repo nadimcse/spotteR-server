@@ -2,9 +2,6 @@ package com.butterfly.spotter.resource;
 
 import com.butterfly.spotter.dao.SpotterDao;
 import com.butterfly.spotter.model.MessageDbObject;
-import com.butterfly.spotter.model.MessageHttpObject;
-import com.butterfly.spotter.model.PeerHttpObject;
-import com.butterfly.spotter.model.StatusCode;
 import com.butterfly.spotter.service.SpotterService;
 import com.sun.jersey.api.view.Viewable;
 

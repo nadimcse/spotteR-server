@@ -1,6 +1,5 @@
 package com.butterfly.spotter.processor;
 
-import com.butterfly.spotter.model.AbstractHttpObject;
 import com.google.gson.Gson;
 
 /**

@@ -2,7 +2,6 @@ package com.butterfly.spotter.service;
 
 import com.google.android.gcm.server.Message;
 import com.google.android.gcm.server.MulticastResult;
-import com.google.android.gcm.server.Result;
 import com.google.android.gcm.server.Sender;
 
 import java.io.IOException;
@@ -17,7 +16,7 @@ public class HttpBroadcastService {
 
     public void sendRequest(String jsonRequestObj, List<String> deviceKeys) {
         Sender sender = new Sender(browserLey);
-         ////configure it
+        ////configure it
         Message message = new Message.Builder()
                 .collapseKey("1")
                 .timeToLive(3)
@@ -27,13 +26,12 @@ public class HttpBroadcastService {
 
         MulticastResult result = null;
         try {
-            result = sender.send(message,deviceKeys, 1);
+            result = sender.send(message, deviceKeys, 1);
             System.out.println(result.toString());
 
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         }
-
 
 
     }

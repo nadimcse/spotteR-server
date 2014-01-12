@@ -33,6 +33,7 @@ public class ServiceModule extends AbstractModule {
         bind(SpotterService.class).in(Scopes.SINGLETON);
         bind(Services.class).in(Scopes.SINGLETON);
         bind(HttpBroadcastService.class).in(Scopes.SINGLETON);
+        bind(ValidationService.class).in(Scopes.SINGLETON);
     }
 
     public void bindCaches() {

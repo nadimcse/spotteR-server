@@ -1,8 +1,10 @@
 package com.butterfly.spotter.resource;
 
+import com.butterfly.spotter.StringUtils;
 import com.butterfly.spotter.model.LoginObject;
 import com.butterfly.spotter.service.SpotterService;
-import org.eclipse.persistence.sessions.Login;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.ws.rs.FormParam;
@@ -11,12 +13,16 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import static com.google.common.base.Preconditions.checkState;
+
 /**
  * @author : Nadim
  * @since : 12/19/13
  */
 @Path("/login")
 public class LoginResource {
+
+    Logger logger = LoggerFactory.getLogger(this.getClass());
     private SpotterService spotterService;
 
     @Inject
@@ -25,13 +31,15 @@ public class LoginResource {
     }
 
     @POST
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     public String getLoginRequest(@FormParam("gcmKey") String gcmKey,
-                              @FormParam("callerId") String senderId,
-                              @FormParam("password") String password) {
-        System.out.println("got it!!!!!!!!!!!!!!!"+  senderId);
-        //handle auth logic
-        spotterService.handleLogin(new LoginObject(gcmKey, senderId, password));
-        return "ok";
+                                  @FormParam("callerId") String senderId,
+                                  @FormParam("password") String password) {
+
+        checkState(StringUtils.isBlank(gcmKey), "Google Cloud Service key is required");
+        checkState(StringUtils.isBlank(gcmKey), "CallerId is required");
+        checkState(StringUtils.isBlank(gcmKey), "Password is required");
+
+        return spotterService.handleLogin(new LoginObject(gcmKey, senderId, password));
     }
 }

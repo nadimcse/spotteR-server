@@ -25,6 +25,8 @@ public class ProcessorModule extends AbstractModule {
 
         mapBinder.addBinding(StatusCode.SEND_MESSAGE_REQUEST.name()).to(MessageProcessor.class);
         mapBinder.addBinding(StatusCode.SEND_MAP_REQUEST.name()).to(MapProcessor.class);
-        mapBinder.addBinding(StatusCode.PEER_CONFORMATION_REQUEST.name()).to(PeerProcessor.class);
+        mapBinder.addBinding(StatusCode.PEER_CONFORMATION_REQUEST.name()).to(PeerConfirmationProcess.class);
+        mapBinder.addBinding(StatusCode.GROUP_REQUEST.name()).to(GroupRequestProcessor.class);
+        mapBinder.addBinding(StatusCode.PEER_REQUEST.name()).to(PeerRequestProcessor.class);
     }
 }

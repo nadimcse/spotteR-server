@@ -1,8 +1,6 @@
 package com.butterfly.spotter.mapping;
 
-import com.butterfly.spotter.resource.HelloResource;
-import com.butterfly.spotter.resource.LoginResource;
-import com.butterfly.spotter.resource.MessageResource;
+import com.butterfly.spotter.resource.*;
 import com.google.inject.Scopes;
 import com.sun.jersey.guice.JerseyServletModule;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
@@ -24,6 +22,11 @@ public class WebserviceJerseyServletModule extends JerseyServletModule {
         bind(HelloResource.class).in(Scopes.SINGLETON);
         bind(LoginResource.class).in(Scopes.SINGLETON);
         bind(MessageResource.class).in(Scopes.SINGLETON);
+        bind(GroupRequestResource.class).in(Scopes.SINGLETON);
+        bind(LogoutResource.class).in(Scopes.SINGLETON);
+        bind(MapRequestResource.class).in(Scopes.SINGLETON);
+        bind(PeerConformationResource.class).in(Scopes.SINGLETON);
+        bind(PeerRequestResource.class).in(Scopes.SINGLETON);
 
         Map<String, String> params = new HashMap<String, String>();
         params.put(ServletContainer.JSP_TEMPLATES_BASE_PATH, "/WEB-INF/jsp");

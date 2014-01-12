@@ -1,7 +1,6 @@
 package com.butterfly.spotter.service;
 
 import com.butterfly.spotter.model.AbstractHttpObject;
-import com.butterfly.spotter.model.StatusCode;
 import com.butterfly.spotter.processor.AbstractProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

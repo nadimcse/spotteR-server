@@ -1,6 +1,7 @@
 package com.butterfly.spotter.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * @author : Nadim
@@ -9,7 +10,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "map")
-public class MapDbObject extends AbstractDbObject {
+public class MapDbObject extends AbstractDbObject implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "map_seq_gen")
     @SequenceGenerator(name = "map_seq_gen", sequenceName = "spotter_seq_map")
@@ -51,7 +52,6 @@ public class MapDbObject extends AbstractDbObject {
         this.callerId = callerId;
     }
 
-    //@Transient
     @Override
     public MapDbObject getContent() {
        return this;

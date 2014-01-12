@@ -1,5 +1,7 @@
 package com.butterfly.spotter.model;
 
+import java.util.List;
+
 /**
  * @author : Nadim
  * @since : 12/10/13
@@ -11,10 +13,13 @@ public class CallerDetailObject {
     private String passwordHash;
     private String coordinateX;
     private String coordinateY;
+    private List<String> groups;
+    private String peers = "";
 
-    public CallerDetailObject(String callerId, String gcmKey) {
+    public CallerDetailObject(String callerId, String gcmKey, String peers) {
         this.callerId = callerId;
         this.gcmKey = gcmKey;
+        this.peers = peers;
     }
 
     public String getCallerId() {
@@ -56,4 +61,21 @@ public class CallerDetailObject {
     public void setCoordinateY(String coordinateY) {
         this.coordinateY = coordinateY;
     }
+
+    public List<String> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<String> groups) {
+        this.groups = groups;
+    }
+
+    public String getPeers() {
+        return peers;
+    }
+
+    public void setPeers(String peers) {
+        this.peers = peers;
+    }
 }
+

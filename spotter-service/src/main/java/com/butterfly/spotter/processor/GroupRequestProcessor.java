@@ -2,34 +2,32 @@ package com.butterfly.spotter.processor;
 
 import com.butterfly.spotter.model.AbstractHttpObject;
 import com.butterfly.spotter.model.CallerDetailObject;
-import com.butterfly.spotter.model.MapHttpObject;
+import com.butterfly.spotter.model.GroupHttpObject;
 import com.butterfly.spotter.service.HttpBroadcastService;
 import com.google.common.cache.Cache;
 
+import javax.inject.Inject;
 import java.util.Arrays;
-import java.util.List;
 
 /**
- * @author : Nadim
- * @since : 12/14/13
+ * @author: Nadim
+ * @since: 1/12/14
  */
-public class MapProcessor extends AbstractProcessor<AbstractHttpObject> {
-    private Cache<Object, List<String>> groupInfoCache;
+public class GroupRequestProcessor extends AbstractProcessor<AbstractHttpObject> {
     private Cache<Object, CallerDetailObject> callerInfoCache;
     private HttpBroadcastService httpBroadcastService;
 
-
-    public MapProcessor(Cache<Object, List<String>> groupInfoCache, Cache<Object, CallerDetailObject> callerInfoCache,
-                        HttpBroadcastService httpBroadcastService) {
-        this.groupInfoCache = groupInfoCache;
+    @Inject
+    public GroupRequestProcessor(Cache<Object, CallerDetailObject> callerInfoCache,
+                                 HttpBroadcastService httpBroadcastService) {
         this.callerInfoCache = callerInfoCache;
         this.httpBroadcastService = httpBroadcastService;
     }
 
     @Override
     public void process() {
-        MapHttpObject mapObj = (MapHttpObject) getContent();
-        String receiverGcmKey = callerInfoCache.getIfPresent(mapObj.getReceiverId()).getGcmKey();
+        GroupHttpObject groupObj = (GroupHttpObject) getContent();
+        String receiverGcmKey = callerInfoCache.getIfPresent(groupObj.getReceiverId()).getGcmKey();
         httpBroadcastService.sendRequest(getJsonFromObject(), Arrays.asList(receiverGcmKey));
     }
 }

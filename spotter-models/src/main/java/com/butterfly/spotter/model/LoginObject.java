@@ -1,5 +1,8 @@
 package com.butterfly.spotter.model;
 
+import com.google.common.base.Charsets;
+import com.google.common.hash.Hashing;
+
 /**
  * @author : Nadim
  * @since : 12/19/13
@@ -38,4 +41,10 @@ public class LoginObject {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String generateAuthKey(long dateLong) {
+        String signature = gcmKey + "|"  + dateLong;
+        return Hashing.md5().hashString(signature, Charsets.UTF_8).toString();
+    }
+
 }

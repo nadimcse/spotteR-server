@@ -21,6 +21,11 @@
              <artifactId>spotter-service</artifactId>
          </dependency>
 
+        <dependency>
+             <groupId>com.butterfly.spotter</groupId>
+             <artifactId>spotter-utils</artifactId>
+         </dependency>
+
         <!--jersy dependencies -->
         <dependency>
             <groupId>com.sun.jersey</groupId>

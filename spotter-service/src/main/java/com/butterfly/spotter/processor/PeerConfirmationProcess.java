@@ -6,6 +6,7 @@ import com.butterfly.spotter.model.PeerConfirmationHttpObject;
 import com.butterfly.spotter.service.HttpBroadcastService;
 import com.google.common.cache.Cache;
 
+import javax.inject.Inject;
 import java.util.Arrays;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -18,6 +19,7 @@ public class PeerConfirmationProcess extends AbstractProcessor<AbstractHttpObjec
     private HttpBroadcastService httpBroadcastService;
     private Cache<Object, CallerDetailObject> callerInfoCache;
 
+    @Inject
     public PeerConfirmationProcess(HttpBroadcastService httpBroadcastService, Cache<Object, CallerDetailObject> callerInfoCache) {
         this.httpBroadcastService = httpBroadcastService;
         this.callerInfoCache = callerInfoCache;

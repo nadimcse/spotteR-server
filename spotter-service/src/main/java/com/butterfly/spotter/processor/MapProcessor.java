@@ -6,6 +6,7 @@ import com.butterfly.spotter.model.MapHttpObject;
 import com.butterfly.spotter.service.HttpBroadcastService;
 import com.google.common.cache.Cache;
 
+import javax.inject.Inject;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,9 +19,8 @@ public class MapProcessor extends AbstractProcessor<AbstractHttpObject> {
     private Cache<Object, CallerDetailObject> callerInfoCache;
     private HttpBroadcastService httpBroadcastService;
 
-
-    public MapProcessor(Cache<Object, List<String>> groupInfoCache, Cache<Object, CallerDetailObject> callerInfoCache,
-                        HttpBroadcastService httpBroadcastService) {
+    @Inject
+    public MapProcessor(Cache<Object, List<String>> groupInfoCache, Cache<Object, CallerDetailObject> callerInfoCache, HttpBroadcastService httpBroadcastService) {
         this.groupInfoCache = groupInfoCache;
         this.callerInfoCache = callerInfoCache;
         this.httpBroadcastService = httpBroadcastService;

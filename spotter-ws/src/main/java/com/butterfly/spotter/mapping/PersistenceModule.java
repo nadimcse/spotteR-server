@@ -1,6 +1,5 @@
 package com.butterfly.spotter.mapping;
 
-import com.butterfly.spotter.dao.JpaDaoSupport;
 import com.butterfly.spotter.dao.SpotterDao;
 import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;

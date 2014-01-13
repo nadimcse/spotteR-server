@@ -33,8 +33,8 @@ public class GroupRequestResource {
     public String processGroupRequest(MultivaluedMap<String, String> formParams) {
         String senderId = formParams.get("senderId").get(0);
         List<String> groupList = formParams.get("groupList");
-        checkState(StringUtils.isBlank(senderId), "Sender id is required");
-        checkState(groupList == null || groupList.size() == 0, "Group list id is required");
+        checkState(!StringUtils.isBlank(senderId), "Sender id is required");
+        checkState(groupList != null || groupList.size() > 0, "Group list id is required");
         checkArgument(groupList != null && groupList.contains(senderId), "Group List must contain senderId inside!");
 
         ///TODO: Authentication

@@ -17,6 +17,10 @@ public class GroupDbObject extends AbstractDbObject implements Serializable {
     private String groupId;
     private String peers;
 
+    public GroupDbObject() {
+
+    }
+
     public GroupDbObject(String groupId, String peers) {
         this.groupId = groupId;
         this.peers = peers;

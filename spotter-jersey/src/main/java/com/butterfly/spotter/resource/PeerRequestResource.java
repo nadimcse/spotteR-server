@@ -30,8 +30,8 @@ public class PeerRequestResource {
     @POST
     public void processPeerRequest(@FormParam("callerId") String callerId,
                                    @FormParam("peerId") String peerId) {
-        checkState(StringUtils.isBlank(callerId), "Caller id is required");
-        checkState(StringUtils.isBlank(peerId), "Peer id is required");
+        checkState(!StringUtils.isBlank(callerId), "Caller id is required");
+        checkState(!StringUtils.isBlank(peerId), "Peer id is required");
 
         ///TODO: handle authentication
         spotterService.handlePeerRequest(callerId, peerId);

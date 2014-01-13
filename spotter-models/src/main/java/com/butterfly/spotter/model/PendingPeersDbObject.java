@@ -17,6 +17,10 @@ public class PendingPeersDbObject extends AbstractDbObject {
     private String senderId;
     private String receiverId;
 
+    public PendingPeersDbObject() {
+
+    }
+
     public PendingPeersDbObject(String pendingId, String senderId, String receiverId) {
         this.pendingId = pendingId;
         this.senderId = senderId;

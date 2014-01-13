@@ -33,9 +33,9 @@ public class MapRequestResource {
     public String processMapRequest(@FormParam("senderId") String senderId,
                                     @FormParam("coordinateX") String coordinateX,
                                     @FormParam("coordinateY") String coordinateY) {
-        checkState(StringUtils.isBlank(senderId), "Sender Id is empty");
-        checkState(StringUtils.isBlank(coordinateX), "CoordinateX is empty");
-        checkState(StringUtils.isBlank(coordinateY), "CoordinateY is empty");
+        checkState(!StringUtils.isBlank(senderId), "Sender Id is empty");
+        checkState(!StringUtils.isBlank(coordinateX), "CoordinateX is empty");
+        checkState(!StringUtils.isBlank(coordinateY), "CoordinateY is empty");
 
         ///TODO: authentication
         spotterService.handleMapService(senderId, coordinateX, coordinateY);

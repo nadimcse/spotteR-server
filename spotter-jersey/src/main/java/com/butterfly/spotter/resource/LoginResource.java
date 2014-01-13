@@ -36,9 +36,9 @@ public class LoginResource {
                                   @FormParam("callerId") String senderId,
                                   @FormParam("password") String password) {
 
-        checkState(StringUtils.isBlank(gcmKey), "Google Cloud Service key is required");
-        checkState(StringUtils.isBlank(gcmKey), "CallerId is required");
-        checkState(StringUtils.isBlank(gcmKey), "Password is required");
+        checkState(!StringUtils.isBlank(gcmKey), "Google Cloud Service key is required");
+        checkState(!StringUtils.isBlank(senderId), "CallerId is required");
+        checkState(!StringUtils.isBlank(password), "Password is required");
 
         return spotterService.handleLogin(new LoginObject(gcmKey, senderId, password));
     }

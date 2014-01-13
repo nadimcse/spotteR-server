@@ -38,7 +38,6 @@ public class ValidationService {
     private boolean validatePasswordPolicy(String password, String hashPassword) {
         //TODO: more sofisticating checking is required
         password = Hashing.md5().hashString(password, Charsets.UTF_8).toString();
-
         if (!Objects.equals(password, hashPassword)) {
             return false;
         }

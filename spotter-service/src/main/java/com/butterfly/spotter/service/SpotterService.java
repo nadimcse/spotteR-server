@@ -5,6 +5,7 @@ import com.butterfly.spotter.dao.SpotterDao;
 import com.butterfly.spotter.model.*;
 import com.google.common.cache.Cache;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.Gson;
 
@@ -111,6 +112,7 @@ public class SpotterService {
 
     public String handleLogout(String callerId) {
         callerInfoCache.invalidate(callerId);
+        System.out.println("caller id exists..........." + callerInfoCache.getIfPresent(callerId));
         //TODO: delete callerid from group cache info
         return StatusCode.LOGOUT_OK.name();
     }

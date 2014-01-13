@@ -32,8 +32,8 @@ public class PeerConformationResource {
     public void processPeerConformation(@FormParam("callerId") String callerId,
                                         @FormParam("groupId") String groupId) {
 
-        checkState(StringUtils.isBlank(callerId), "Caller id required");
-        checkState(StringUtils.isBlank(groupId), "pending key required");
+        checkState(!StringUtils.isBlank(callerId), "Caller id required");
+        checkState(!StringUtils.isBlank(groupId), "pending key required");
         ///TODO: authentication
         spotterService.handlePeerConformationRequest(groupId);
     }

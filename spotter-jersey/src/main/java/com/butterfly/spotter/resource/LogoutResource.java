@@ -31,7 +31,7 @@ public class LogoutResource {
     public String doLogout(@FormParam("callerId") String callerId) {
 
         ///TODO:  check authentication
-        checkState(StringUtils.isBlank(callerId), "Caller Id is required");
+        checkState(!StringUtils.isBlank(callerId), "Caller Id is required");
         return spotterService.handleLogout(callerId);
     }
 }
